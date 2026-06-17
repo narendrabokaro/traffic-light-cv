@@ -1,3 +1,5 @@
+# This script extract 1 frame every 2 seconds from video provided.
+
 import cv2
 import os
 import argparse
