@@ -1,0 +1,22 @@
+# Python environment and cache
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Computer Vision / Dataset specifics (Never commit raw video footage or massive image directories)
+*.mp4
+*.avi
+*.mkv
+/datasets/
+/weights/
+*.pt
+*.onnx
+
+# Local camera / hardware hardware config logs
+*.log
