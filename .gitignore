@@ -1,0 +1,20 @@
+cat << 'EOF' > .gitignore
+# Python Virtual Environment & Cache
+venv/
+__pycache__/
+*.pyc
+
+# Dataset & Video Folders
+raw_videos/
+staging_videos/
+completed_videos/
+extracted_frames/
+traffic_lights_only/
+traffic_light_only_part1/
+Rest/
+
+# AI Model Weights
+*.pt
+*.onnx
+*.rknn
+EOF
