@@ -7,9 +7,9 @@ import imagehash
 # Configuration
 VIDEO_DIR = os.getenv("VIDEO_DIR", "raw_videos")
 OUTPUT_DIR = "extracted_frames"
-FRAME_SKIP = 10           # Extract 1 frame out of every 10
+FRAME_SKIP = 30           # Extract 1 frame every second on 30 FPS
 BLUR_THRESHOLD = 100.0    # Higher = stricter blur filter. Adjust based on your dashcam quality.
-HASH_DIFFERENCE = 5       # How different images must be to be kept (prevents duplicates)
+HASH_DIFFERENCE = 10       # How different images must be to be kept (prevents duplicates - more strict rule, try 8 if this is too much)
 
 def variance_of_laplacian(image):
     # Computes the Laplacian of the image and returns the variance (blur metric)
