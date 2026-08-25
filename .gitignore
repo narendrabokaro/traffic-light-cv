@@ -18,3 +18,7 @@ Rest/
 *.onnx
 *.rknn
 EOF
+
+# Dataset & Training Artefacts
+traffic_light_dataset/
+runs/
