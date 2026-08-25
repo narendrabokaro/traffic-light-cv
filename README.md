@@ -4,7 +4,7 @@ A lightweight, hybrid computer vision pipeline designed to detect **Red-to-Green
 
 This project bridges deep learning and traditional computer vision to create an efficient driver-assistance tool. It is architected specifically for low-power edge devices, utilizing a neural processing unit (NPU) for object detection and a CPU for fast, deterministic state tracking.
 
-## 🧠 System Architecture
+## System Architecture
 
 The pipeline uses a "division of labor" approach to maximize frames-per-second (FPS) on edge hardware:
 
@@ -13,7 +13,7 @@ The pipeline uses a "division of labor" approach to maximize frames-per-second (
 3. **State Machine:** Tallies an "All-Box Majority Vote" across the multi-lane intersection. When it registers a definitive **Red to Green** transition, it triggers an alert flag.
 4. **Cooldown Logic:** Upon a successful transition, the system enters a 5-second sleep state, bypassing NPU and CPU processing while the vehicle clears the intersection, before wiping its memory back to an `UNKNOWN` state.
 
-## 🛠️ Hardware & Tech Stack
+## Hardware & Tech Stack
 
 *   **Development OS:** Arch Linux
 *   **Target Edge Hardware:** Orange Pi 5 Pro
@@ -22,7 +22,7 @@ The pipeline uses a "division of labor" approach to maximize frames-per-second (
 *   **Model Pipeline:** `best.pt` -> ONNX -> RKNN (INT8 Quantization planned)
 *   **Dataset Annotation:** Roboflow
 
-## 🚀 Current Status
+## Current Status
 
 The system is currently running as a unified desktop prototype (`traffic_assist_core.py`) for video file validation. 
 
@@ -31,22 +31,27 @@ The system is currently running as a unified desktop prototype (`traffic_assist_
 *   Removed ROI inner-cropping to improve accuracy on horizontal mast-arm signals.
 *   Implemented a 5-second inference cooldown post-transition.
 
-## 📂 Installation & Usage (Desktop Testing)
+## Installation & Usage (Desktop Testing)
 
-**1. Clone the repository**
+1. Clone the repository
 ```bash
-git clone [https://github.com/narendrabokaro/traffic_light_cv.git](https://github.com/narendrabokaro/traffic_light_cv.git)
+git clone https://github.com/narendrabokaro/traffic_light_cv.git
 cd traffic_light_cv
+```
 
-2. Install dependencies
+3. Install dependencies
+```bash
 pip install opencv-python numpy ultralytics
+```
 
-3. Run the pipeline
+5. Run the pipeline
 Place your YOLOv8 weights (best.pt) and your dashcam test video (dashcam.mp4) in the root directory, then execute:
+```bash
 python traffic_assist_core.py
+```
 
 The script will output a classified_output.mp4 file with bounding boxes, color classifications, and system state overlays.
-🗺️ Development Roadmap
+Development Roadmap
 
     [x] Train baseline YOLOv8 model on custom traffic light dataset.
 
